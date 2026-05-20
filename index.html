@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn Ki – Ki</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:Obviously;src:url(/wp-content/themes/ki-shop/assets/fonts/Obviously-Regular.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Obviously;src:url(/wp-content/themes/ki-shop/assets/fonts/Obviously-Light.otf) format('opentype');font-weight:300;font-display:swap}
+@font-face{font-family:Obviously;src:url(/wp-content/themes/ki-shop/assets/fonts/Obviously-Medium.otf) format('opentype');font-weight:600;font-display:swap}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-family:Obviously,Outfit,system-ui,sans-serif;-webkit-font-smoothing:antialiased;scroll-snap-type:y mandatory;overflow-y:scroll}
+body{color:#111;background:#F5F1EB;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+#hdr{position:fixed;left:0;width:100%;z-index:100;transition:background .3s,box-shadow .3s,color .3s;color:#fff;background:transparent}
+#hdr.s{background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.08);color:#111}
+#hdr.s .lw{opacity:0}#hdr.s .lb{opacity:1}#hdr:not(.s) .lb{opacity:0}
+.hi{max-width:80rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem}
+.la{display:inline-block;position:relative}.la img{height:3.5rem;pointer-events:none;transition:opacity .3s}.lw{position:absolute;top:0;left:0}
+.nu{display:flex;gap:3.5rem;font-size:.8rem;list-style:none}.nu a span{position:relative;padding-bottom:.25rem}.nu a span::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:currentColor;transition:width .3s}.nu a:hover span::after,.nu .c span::after{width:100%}
+.hrt{font-size:.8rem}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:flex-end;scroll-snap-align:start;scroll-snap-stop:normal}
+.hero .bg{position:absolute;inset:0}.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:30% bottom}
+/* Color-matched gradient sampled from landscape foliage */
+.hero .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#0d1f16 0%,rgba(15,35,25,.85) 10%,rgba(20,45,30,.45) 22%,rgba(25,57,44,.1) 35%,transparent 45%)}
+.ufo{position:absolute;z-index:3;pointer-events:none}
+.ufo1{width:clamp(120px,12vw,192px);top:17%;left:12%;animation:h1 4s ease-in-out infinite}
+.ufo2{width:clamp(51px,5.1vw,85px);top:29%;left:18%;animation:h2 5s ease-in-out infinite .4s}
+.ufo3{width:clamp(38px,3.8vw,66px);top:35%;left:15%;animation:h3 6s ease-in-out infinite .8s}
+@keyframes h1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes h2{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes h3{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.hero-c{position:relative;z-index:4;width:100%;max-width:1200px;margin:0 auto;padding:0 4rem 5rem}
+.hero-txt{max-width:600px}
+.hero-txt .ey{font-size:1.15rem;letter-spacing:.05em;color:#D4A265;font-weight:700;margin-bottom:1rem}
+.hero-txt h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;color:#fff;margin-bottom:1.5rem}
+.hero-txt p{font-size:1rem;color:rgba(255,255,255,.9);max-width:460px;line-height:1.7;margin-bottom:2rem}
+.hero-cta{font-size:.85rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;border-bottom:2px solid #B88448;padding-bottom:.3rem}
+
+/* ═══ SPREADS ═══ */
+.spread{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;scroll-snap-align:start;scroll-snap-stop:normal}
+.spread.flip{direction:rtl}.spread.flip>*{direction:ltr}
+
+/* Image panel: texture at 90% */
+.sp-img{position:relative;display:flex;align-items:center;justify-content:center;padding:3rem;overflow:hidden}
+.sp-img .tex{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
+.sp-img img.prd{position:relative;z-index:2;max-height:70vh;width:auto;max-width:80%;object-fit:contain;filter:drop-shadow(0 16px 50px rgba(0,0,0,.2))}
+.sp-img .prd.bob1{animation:bob1 5s ease-in-out infinite}
+.sp-img .prd.bob2{animation:bob2 6s ease-in-out infinite}
+.sp-img .prd.bob3{animation:bob3 4.5s ease-in-out infinite}
+/* Design section puck: override to be much larger */
+.sp-img .prd.big{max-height:80vh;max-width:85%}
+@keyframes bob1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-8px) rotate(-1.5deg)}}
+@keyframes bob2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-6px) rotate(1deg)}}
+@keyframes bob3{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-7px) rotate(-1deg)}}
+
+/* Copy panel: flat color, no texture */
+.sp-copy{display:flex;flex-direction:column;justify-content:center;padding:5rem 4.5rem;color:#fff}
+.sp-copy h2{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;margin-bottom:1rem}
+.sp-copy .lead{font-size:1rem;line-height:1.75;opacity:.95;margin-bottom:3rem;max-width:440px;font-weight:300}
+.dt{padding:1.35rem 0;border-bottom:1px solid rgba(255,255,255,.15)}.dt:first-child{border-top:1px solid rgba(255,255,255,.15)}
+.dt h3{font-size:1rem;font-weight:700;margin-bottom:.4rem;letter-spacing:.02em}
+.dt p{font-size:.85rem;line-height:1.65;opacity:.7;max-width:400px;font-weight:300}
+
+/* Flat copy panel colors (darkened from texture averages) */
+.sec-a .sp-copy{background:#586429}
+.sec-b .sp-copy{background:#76793c}
+
+/* ═══ KAIZEN ═══ */
+.kaizen{position:relative;overflow:hidden;min-height:70vh;padding:10rem 2rem;text-align:center;color:#fff;display:flex;align-items:center;justify-content:center;scroll-snap-align:start;scroll-snap-stop:normal}
+.kaizen .bg{position:absolute;inset:0}.kaizen .bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%}.kaizen .bg::after{content:'';position:absolute;inset:0;background:rgba(20,35,20,.45)}
+.kaizen-in{position:relative;z-index:2;max-width:650px}
+.kaizen-in h2{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin-bottom:1.75rem}
+.kaizen-in p{font-size:1.05rem;line-height:1.8;opacity:.92;font-weight:300}
+
+/* ═══ COLLECTION ═══ */
+.coll{background:#F5F1EB;padding:6rem 2rem;text-align:center;scroll-snap-align:start;scroll-snap-stop:normal}
+.coll .ey{font-size:1.15rem;letter-spacing:.05em;color:#B88448;font-weight:700;margin-bottom:.5rem}
+.coll h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:3.5rem}
+.fr{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap}
+.fv{text-align:center;cursor:pointer;transition:transform .4s}.fv:hover{transform:translateY(-6px)}
+.fv img{width:200px;height:200px;object-fit:contain;margin:0 auto 1rem;filter:drop-shadow(0 8px 20px rgba(0,0,0,.1))}
+.fv:nth-child(1) img{animation:wave 4s ease-in-out infinite 0s}
+.fv:nth-child(2) img{animation:wave 4s ease-in-out infinite .4s}
+.fv:nth-child(3) img{animation:wave 4s ease-in-out infinite .8s}
+.fv:nth-child(4) img{animation:wave 4s ease-in-out infinite 1.2s}
+.fv:nth-child(5) img{animation:wave 4s ease-in-out infinite 1.6s}
+@keyframes wave{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.fv h4{font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.15rem}
+.fv .jp{font-family:'Noto Sans JP',sans-serif;font-size:.7rem;font-weight:300;color:#555;opacity:.55}
+
+footer{background:#f3f4f6;font-size:.875rem;color:#000;padding:3rem 0}
+.fg{max-width:80rem;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:start}
+.fl{height:4rem;margin-bottom:1rem}
+.fm{list-style:none;display:flex;flex-direction:column;gap:.4rem}.fm a:hover{color:#B88448}
+.ftr h4{font-weight:600;margin-bottom:.5rem}.ftr p{font-size:.75rem;opacity:.8;margin-bottom:1rem}
+.gb{display:inline-block;background:#B88448;color:#fff;padding:.75rem 1.5rem;border-radius:.375rem;font-size:.875rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:none;cursor:pointer}.gb:hover{background:#a0753d}
+.fb{max-width:80rem;margin:3rem auto 0;padding:2rem 1.5rem 0;border-top:1px solid #d1d5db;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:#6b7280}.fb a{color:#6b7280;margin-right:1.5rem}.fb a:hover{color:#B88448}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}.rv.v{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+@media(max-width:900px){
+  .nu,.hrt{display:none}
+  .hero-c{padding:0 1.5rem 3rem}
+  .ufo1{width:96px;top:14%;left:8%}.ufo2{width:42px;top:26%;left:14%}.ufo3{width:30px;top:32%;left:11%}
+  .spread,.spread.flip{grid-template-columns:1fr;direction:ltr}.spread.flip>*{direction:ltr}
+  .sp-img{min-height:50vh;padding:2rem}.sp-img img.prd{max-height:400px;width:80%}
+  .sp-copy{padding:3rem 1.5rem}
+  .kaizen{min-height:50vh;padding:6rem 1.5rem}
+  .fr{gap:1.5rem}.fv img{width:140px;height:140px}
+  .fg{grid-template-columns:1fr}.fb{flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+<header id="hdr"><nav class="hi">
+  <a href="/" class="la"><img class="lw" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 65.73 63'%3E%3Cpath fill='%23fff' d='M64.22,0H1.51C.68,0,0,.75,0,1.68v59.65c0,.93.68,1.68,1.51,1.68h62.71c.83,0,1.51-.75,1.51-1.68V1.68c0-.93-.68-1.68-1.51-1.68ZM48.06,8.73c.72-.69,1.5-1.72,1.77-2.71.05-.23-.19-.47-.17-.73.07-.46.81-.16,1.04-.07.33.2.79.49.76.88,0,.15-.3.36-.11.46.94.14,2.01,0,2.88-.37.33-.17.75-.27,1.07-.06l.03.03c.36.31.24.8-.14,1.05-.38.31-.87.19-1.31.09-1.09-.16-2.29.13-3.37.34-.28.17-.46.45-.69.67-.58.53-1.24,1.01-2,1.2-.79.07-.02-.6.23-.78ZM54.67,9.21c-.3.04-.61-.04-.92-.01-.75.05-1.35.21-2.11.35-.29.08-.64.08-.8.37-.06.09-.16.14-.27.11-.6-.2-1.09-1.15-.57-1.63.21-.07.46.13.66.16.9.1,1.85-.02,2.7-.29.6-.45.78-.14,1.26.27l.04.03c.25.19.57.57.02.65ZM47.43,10.88c1.18-.02,2.39-.13,3.59-.33,1.24-.24,2.46-.58,3.67-.96.79-.39,1.1-.44,1.79.22l.04.04c.53.54.3.97-.12,1.46-.33.48-.29,1.06-.36,1.64-.04.4-.1.81-.06,1.22.11,1.16,1.25,2.53,2.39,2.89.34.09.77.11,1.03-.16.25-.23.23-.65.39-.93.39-.56.66.14.7.62.37,1.83.5,2.77-1.75,2.28-1.43-.41-2.47-1.44-3.19-2.65-.88-1.24-1.06-2.77-.78-4.24.09-.76.17-1.36-.7-1.23-1.8.18-3.6.59-5.37,1.01-.5.13-1.06.23-1.52-.08-.56-.39-.35-.81.27-.78ZM49.61,13.96c-.31-.26-.64-.5-.94-.77-.31-.27-.41-.68.01-.67.7.08,1.6.67,2.26,1,.55.19.73-.59.92-.95.13-.3-.04-.57-.21-.8-.22-.3.05-.53.37-.54.69-.04,1.65.28,1.72,1.03-.01.26-.21.48-.37.66-.34.42-.82.94-.86,1.47v.03c.41.55,1.42,1.01,1.46,1.79.15.5-.16,1.1-.73,1.08-.86-.05-1.2-1.27-1.86-1.58-.16-.02-.31.09-.44.19-.45.35-.95.68-1.44.96-.63.33-1.55.83-2.33.91-.23,0-.2-.09-.05-.21.97-.77,2.03-1.52,2.93-2.37.1-.1.21-.23.24-.37.08-.32-.38-.6-.69-.86ZM41.89,57.96h-12.97c-.12,0-.23-.06-.29-.15l-9.07-12.32c-.21-.28-.65-.13-.65.21v11.6c0,.36-.29.65-.65.65H5.69c-.36,0-.65-.29-.65-.65v-27.34c0-.36.29-.65.65-.65h12.56c.36,0,.65.29.65.65v9.55c0,.33.41.49.63.23l8.82-10.31c.07-.08.17-.13.28-.13h12.98c.3,0,.47.34.3.58l-9.24,12.9c-.24.34-.25.8,0,1.14l9.52,13.45c.17.24,0,.58-.3.58ZM60.69,57.31c0,.36-.29.65-.65.65h-12.56c-.36,0-.65-.29-.65-.65v-27.34c0-.36.29-.65.65-.65h12.56c.36,0,.65.29.65.65v27.34Z'/%3E%3C/svg%3E" alt="Ki"><img class="lb" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 65.73 63'%3E%3Cpath fill='%23111' d='M64.22,0H1.51C.68,0,0,.75,0,1.68v59.65c0,.93.68,1.68,1.51,1.68h62.71c.83,0,1.51-.75,1.51-1.68V1.68c0-.93-.68-1.68-1.51-1.68ZM48.06,8.73c.72-.69,1.5-1.72,1.77-2.71.05-.23-.19-.47-.17-.73.07-.46.81-.16,1.04-.07.33.2.79.49.76.88,0,.15-.3.36-.11.46.94.14,2.01,0,2.88-.37.33-.17.75-.27,1.07-.06l.03.03c.36.31.24.8-.14,1.05-.38.31-.87.19-1.31.09-1.09-.16-2.29.13-3.37.34-.28.17-.46.45-.69.67-.58.53-1.24,1.01-2,1.2-.79.07-.02-.6.23-.78ZM54.67,9.21c-.3.04-.61-.04-.92-.01-.75.05-1.35.21-2.11.35-.29.08-.64.08-.8.37-.06.09-.16.14-.27.11-.6-.2-1.09-1.15-.57-1.63.21-.07.46.13.66.16.9.1,1.85-.02,2.7-.29.6-.45.78-.14,1.26.27l.04.03c.25.19.57.57.02.65ZM47.43,10.88c1.18-.02,2.39-.13,3.59-.33,1.24-.24,2.46-.58,3.67-.96.79-.39,1.1-.44,1.79.22l.04.04c.53.54.3.97-.12,1.46-.33.48-.29,1.06-.36,1.64-.04.4-.1.81-.06,1.22.11,1.16,1.25,2.53,2.39,2.89.34.09.77.11,1.03-.16.25-.23.23-.65.39-.93.39-.56.66.14.7.62.37,1.83.5,2.77-1.75,2.28-1.43-.41-2.47-1.44-3.19-2.65-.88-1.24-1.06-2.77-.78-4.24.09-.76.17-1.36-.7-1.23-1.8.18-3.6.59-5.37,1.01-.5.13-1.06.23-1.52-.08-.56-.39-.35-.81.27-.78ZM49.61,13.96c-.31-.26-.64-.5-.94-.77-.31-.27-.41-.68.01-.67.7.08,1.6.67,2.26,1,.55.19.73-.59.92-.95.13-.3-.04-.57-.21-.8-.22-.3.05-.53.37-.54.69-.04,1.65.28,1.72,1.03-.01.26-.21.48-.37.66-.34.42-.82.94-.86,1.47v.03c.41.55,1.42,1.01,1.46,1.79.15.5-.16,1.1-.73,1.08-.86-.05-1.2-1.27-1.86-1.58-.16-.02-.31.09-.44.19-.45.35-.95.68-1.44.96-.63.33-1.55.83-2.33.91-.23,0-.2-.09-.05-.21.97-.77,2.03-1.52,2.93-2.37.1-.1.21-.23.24-.37.08-.32-.38-.6-.69-.86ZM41.89,57.96h-12.97c-.12,0-.23-.06-.29-.15l-9.07-12.32c-.21-.28-.65-.13-.65.21v11.6c0,.36-.29.65-.65.65H5.69c-.36,0-.65-.29-.65-.65v-27.34c0-.36.29-.65.65-.65h12.56c.36,0,.65.29.65.65v9.55c0,.33.41.49.63.23l8.82-10.31c.07-.08.17-.13.28-.13h12.98c.3,0,.47.34.3.58l-9.24,12.9c-.24.34-.25.8,0,1.14l9.52,13.45c.17.24,0,.58-.3.58ZM60.69,57.31c0,.36-.29.65-.65.65h-12.56c-.36,0-.65-.29-.65-.65v-27.34c0-.36.29-.65.65-.65h12.56c.36,0,.65.29.65.65v27.34Z'/%3E%3C/svg%3E" alt="Ki"></a>
+  <ul class="nu"><li><a href="/shop/"><span>Ki Collection</span></a></li><li><a href="/free-sample/"><span>Gift of Ki</span></a></li><li class="c"><a href="/learn-ki/"><span>Our Story</span></a></li><li><a href="/faq/"><span>FAQs</span></a></li><li><a href="/collaborate/"><span>Collaborate</span></a></li></ul>
+  <a href="/cart/" class="hrt">Cart (0)</a>
+</nav></header>
+
+<section class="hero">
+  <div class="bg"><img src="assets/landscape.jpg" alt=""></div>
+  <img class="ufo ufo1" src="assets/ufo1.png" alt="">
+  <img class="ufo ufo3" src="assets/ufo3.png" alt="">
+  <img class="ufo ufo2" src="assets/ufo2.png" alt="">
+  <div class="hero-c">
+    <div class="hero-txt">
+      <p class="ey rv">私たちの物語</p>
+      <h1 class="rv d1">Unlock a New Nicotine Experience</h1>
+      <p class="rv d2">Ki offers a breath. A moment of focus. A daily ritual designed to bring clarity. With chef-crafted flavors, naturally-derived ingredients, and eco-conscious design, Ki creates a premium experience grounded in balance.</p>
+      <a href="#ingredients" class="hero-cta rv d3">Explore Our Process ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- Ingredients: texture image panel + flat copy -->
+<div class="spread sec-a" id="ingredients">
+  <div class="sp-img">
+    <img class="tex" src="assets/paper08.jpg" alt="">
+    <img class="prd bob1 rv" src="assets/ingredients.png" alt="Ki ingredients">
+  </div>
+  <div class="sp-copy">
+    <h2 class="rv">Ingredients</h2>
+    <p class="lead rv d1">Crafted to a meticulous Japanese standard, every ingredient is carefully selected for purity and purpose.</p>
+    <div class="dt rv d1"><h3>Considered Ingredients</h3><p>We leave out propylene glycol, ensuring a cleaner experience. Instead of artificial sugars we opt for the balanced sweetness of monk fruit.</p></div>
+    <div class="dt rv d2"><h3>Chef-Crafted Flavor</h3><p>Each Ki flavor is carefully developed by our Michelin trained chef—balancing depth, contrast, and finish to create a refined sensory experience on the palate.</p></div>
+    <div class="dt rv d3"><h3>Long-Lasting Experience</h3><p>Ki pouches can be enjoyed up to 60 minutes. Our formula delivers a brisk uptake with steady release.</p></div>
+  </div>
+</div>
+
+<!-- Manufacturing: texture image panel + flat copy, flipped -->
+<div class="spread sec-b flip">
+  <div class="sp-img">
+    <img class="tex" src="assets/paper09.jpg" alt="">
+    <img class="prd bob2 rv" src="assets/pouches.png" alt="Ki pouches">
+  </div>
+  <div class="sp-copy">
+    <h2 class="rv">Manufacturing</h2>
+    <p class="lead rv d1">Every Ki product begins with carefully-sourced ingredients and follows strict quality standards throughout production.</p>
+    <div class="dt rv d1"><h3>Small-Batch Freshness</h3><p>Small and frequent production batches ensure you receive the freshest possible product.</p></div>
+    <div class="dt rv d2"><h3>Made in the USA</h3><p>Every Ki product is crafted in US facilities.</p></div>
+    <div class="dt rv d3"><h3>Pharmaceutical-Grade</h3><p>Manufactured under the highest cleanliness standards.</p></div>
+  </div>
+</div>
+
+<!-- Design: texture image panel + flat copy, puck BIG -->
+<div class="spread sec-a">
+  <div class="sp-img">
+    <img class="tex" src="assets/paper08.jpg" alt="">
+    <img class="prd big bob3 rv" src="assets/openpuck.png" alt="Ki open puck">
+  </div>
+  <div class="sp-copy">
+    <h2 class="rv">Design</h2>
+    <p class="lead rv d1">Our eco-conscious design is guided by a philosophy of continuous awareness.</p>
+    <div class="dt rv d1"><h3>Sustainable Packaging</h3><p>Our commitment to the planet starts with our environmentally-certified plastic can.</p></div>
+    <div class="dt rv d2"><h3>Plant-Based Pouch</h3><p>Our pouch material uses bamboo viscose for a softer and sustainable experience.</p></div>
+  </div>
+</div>
+
+<section class="kaizen">
+  <div class="bg"><img src="assets/ki-back-07.jpg" alt=""></div>
+  <div class="kaizen-in rv">
+    <h2>Rooted in Japanese Quality</h2>
+    <p>Embracing the Japanese principle of Kaizen, we continuously improve every step—from sourcing ingredients to our sustainable design. The result is a product that embodies both tradition and progress.</p>
+  </div>
+</section>
+
+<section class="coll">
+  <p class="ey rv">コレクション</p>
+  <h2 class="rv d1">The Ki Collection</h2>
+  <div class="fr">
+    <div class="fv rv"><img src="assets/maple-coffee.png" alt="Maple Coffee"><h4>Maple Coffee</h4><span class="jp">メープルコーヒー</span></div>
+    <div class="fv rv d1"><img src="assets/hokkaido-mint.png" alt="Hokkaido Mint"><h4>Hokkaido Mint</h4><span class="jp">北海道ミント</span></div>
+    <div class="fv rv d2"><img src="assets/yuzu-mint.png" alt="Yuzu Mint"><h4>Yuzu Mint</h4><span class="jp">ユズミント</span></div>
+    <div class="fv rv d3"><img src="assets/tokyo-cola.png" alt="Tokyo Cola"><h4>Tokyo Cola</h4><span class="jp">東京コーラ</span></div>
+    <div class="fv rv d4"><img src="assets/satsuma-citrus.png" alt="Satsuma Citrus"><h4>Satsuma Citrus</h4><span class="jp">薩摩シトラス</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="fg">
+    <div><img class="fl" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 65.73 63'%3E%3Cpath fill='%23111' d='M64.22,0H1.51C.68,0,0,.75,0,1.68v59.65c0,.93.68,1.68,1.51,1.68h62.71c.83,0,1.51-.75,1.51-1.68V1.68c0-.93-.68-1.68-1.51-1.68ZM48.06,8.73c.72-.69,1.5-1.72,1.77-2.71.05-.23-.19-.47-.17-.73.07-.46.81-.16,1.04-.07.33.2.79.49.76.88,0,.15-.3.36-.11.46.94.14,2.01,0,2.88-.37.33-.17.75-.27,1.07-.06l.03.03c.36.31.24.8-.14,1.05-.38.31-.87.19-1.31.09-1.09-.16-2.29.13-3.37.34-.28.17-.46.45-.69.67-.58.53-1.24,1.01-2,1.2-.79.07-.02-.6.23-.78ZM54.67,9.21c-.3.04-.61-.04-.92-.01-.75.05-1.35.21-2.11.35-.29.08-.64.08-.8.37-.06.09-.16.14-.27.11-.6-.2-1.09-1.15-.57-1.63.21-.07.46.13.66.16.9.1,1.85-.02,2.7-.29.6-.45.78-.14,1.26.27l.04.03c.25.19.57.57.02.65ZM47.43,10.88c1.18-.02,2.39-.13,3.59-.33,1.24-.24,2.46-.58,3.67-.96.79-.39,1.1-.44,1.79.22l.04.04c.53.54.3.97-.12,1.46-.33.48-.29,1.06-.36,1.64-.04.4-.1.81-.06,1.22.11,1.16,1.25,2.53,2.39,2.89.34.09.77.11,1.03-.16.25-.23.23-.65.39-.93.39-.56.66.14.7.62.37,1.83.5,2.77-1.75,2.28-1.43-.41-2.47-1.44-3.19-2.65-.88-1.24-1.06-2.77-.78-4.24.09-.76.17-1.36-.7-1.23-1.8.18-3.6.59-5.37,1.01-.5.13-1.06.23-1.52-.08-.56-.39-.35-.81.27-.78ZM49.61,13.96c-.31-.26-.64-.5-.94-.77-.31-.27-.41-.68.01-.67.7.08,1.6.67,2.26,1,.55.19.73-.59.92-.95.13-.3-.04-.57-.21-.8-.22-.3.05-.53.37-.54.69-.04,1.65.28,1.72,1.03-.01.26-.21.48-.37.66-.34.42-.82.94-.86,1.47v.03c.41.55,1.42,1.01,1.46,1.79.15.5-.16,1.1-.73,1.08-.86-.05-1.2-1.27-1.86-1.58-.16-.02-.31.09-.44.19-.45.35-.95.68-1.44.96-.63.33-1.55.83-2.33.91-.23,0-.2-.09-.05-.21.97-.77,2.03-1.52,2.93-2.37.1-.1.21-.23.24-.37.08-.32-.38-.6-.69-.86ZM41.89,57.96h-12.97c-.12,0-.23-.06-.29-.15l-9.07-12.32c-.21-.28-.65-.13-.65.21v11.6c0,.36-.29.65-.65.65H5.69c-.36,0-.65-.29-.65-.65v-27.34c0-.36.29-.65.65-.65h12.56c.36,0,.65.29.65.65v9.55c0,.33.41.49.63.23l8.82-10.31c.07-.08.17-.13.28-.13h12.98c.3,0,.47.34.3.58l-9.24,12.9c-.24.34-.25.8,0,1.14l9.52,13.45c.17.24,0,.58-.3.58ZM60.69,57.31c0,.36-.29.65-.65.65h-12.56c-.36,0-.65-.29-.65-.65v-27.34c0-.36.29-.65.65-.65h12.56c.36,0,.65.29.65.65v27.34Z'/%3E%3C/svg%3E" alt="Ki"></div>
+    <div><ul class="fm"><li><a href="/shop/">Ki Collection</a></li><li><a href="/learn-ki/">Learn Ki</a></li><li><a href="/faq/">FAQs</a></li><li><a href="/shipping/">Shipping</a></li><li><a href="/contact/">Contact</a></li><li><a href="/free-sample/">Receive Gift of Ki</a></li></ul></div>
+    <div class="ftr"><h4>Join Ki community</h4><p>Create account, shop, and stay updated</p><button class="gb">Create Account</button></div>
+  </div>
+  <div class="fb"><div><a href="/terms-of-service">Terms of Service</a><a href="/privacy-policy">Privacy Policy</a></div><p>© 2026 Ki. All rights reserved.</p></div>
+</footer>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('s',scrollY>80),{passive:true});
+document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')}),{threshold:.1,rootMargin:'0px 0px -40px 0px'}).observe(el));
+</script>
+</body>
+</html>
